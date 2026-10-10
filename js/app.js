@@ -76,6 +76,11 @@
     });
   });
 
+  // Promo videos: reset to blank state when finished
+  $$('.video-wrap video').forEach(function(v){
+    v.addEventListener('ended',function(){try{v.load()}catch(e){try{v.currentTime=0}catch(_){}v.pause()}});
+  });
+
   // To top
   var top=$('#toTop');
   if(top){window.addEventListener('scroll',function(){top.style.display=window.scrollY>600?'block':'none'},{passive:true});
