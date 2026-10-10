@@ -167,10 +167,15 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--brand);border-co
 .app-banner p{color:#cbd5e1}
 /* Footer */
 footer{background:#052e16;color:#cbd5e1}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr 1.3fr;gap:22px;padding:40px 0 20px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr 1.2fr;gap:22px;padding:40px 0 20px}
 footer a{color:#d1fae5}
 footer h4{color:#fff;margin:0 0 10px;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
 .foot-grid ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:.9rem}
+/* Get-in-touch rows: icon + text always on one line */
+.foot-contact li{display:flex;align-items:center;gap:7px;min-width:0}
+.foot-contact .ico{flex:0 0 auto}
+.foot-contact a{white-space:nowrap}
+.foot-contact .mail-link{font-size:.8rem;letter-spacing:-.01em}
 .socials{display:flex;gap:10px;margin-top:14px}
 .socials a{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.1);color:#fff}
 .socials a svg{width:22px;height:22px}
