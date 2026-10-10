@@ -26,12 +26,12 @@ p{margin:0 0 1rem}
 .topbar{background:var(--text);color:#cbd5e1;font-size:.82rem}
 .topbar .container{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:6px;padding-bottom:6px;flex-wrap:wrap}
 .topbar a{color:#e2e8f0}
-/* Marquee embedded in topbar (between phone + mail) */
-.top-marquee{flex:1 1 220px;min-width:0;overflow:hidden;white-space:nowrap;color:#DAA520;font-weight:800;font-size:.82rem;letter-spacing:.02em;text-align:center;text-shadow:none;box-shadow:none}
-.top-marquee:hover{color:#DAA520;text-decoration:none}
-.tick-inner{display:inline-flex;will-change:transform;animation:tick 16s linear infinite}
+/* Marquee embedded in topbar (between phone + mail) — deep metallic gold, no shadow */
+.top-marquee{flex:1 1 220px;min-width:0;overflow:hidden;white-space:nowrap;font-weight:800;font-size:.82rem;letter-spacing:.02em;text-align:center;text-shadow:none;box-shadow:none}
+.top-marquee:hover{text-decoration:none}
+.tick-inner{display:inline-flex;animation:tick 28s linear infinite}
 .top-marquee:hover .tick-inner{animation-play-state:paused}
-.tick-inner span{white-space:nowrap}
+.tick-inner>span{white-space:nowrap;color:transparent;background:linear-gradient(180deg,#7c5e10 0%,#b8860b 28%,#f7e08b 50%,#d4af37 62%,#7c5e10 100%);-webkit-background-clip:text;background-clip:text;text-shadow:none}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.tick-inner{animation:none}}
 /* Icons before text */
@@ -88,11 +88,16 @@ p{margin:0 0 1rem}
 .video-wrap{background:#000;border-radius:12px;overflow:hidden}
 .video-wrap video{display:block;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px}
 .media-cap{margin:10px 2px 0;font-size:.88rem;font-weight:700;color:var(--brand-dark)}
-.audio-card{display:flex;gap:12px;align-items:center}
-.audio-card img{width:72px;height:72px;border-radius:12px;object-fit:cover;flex:0 0 auto}
-.audio-body{min-width:0;flex:1;display:grid;gap:8px}
-.audio-body b{font-size:.9rem}
-.audio-body audio{width:100%;max-width:100%}
+/* Twin promo videos in one row (original 16:9, undistorted) */
+.video-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.media-card.slim{padding:10px}
+.media-card.slim .media-cap{font-size:.8rem}
+/* Audio as a full-size video-like panel (cover backdrop + controls bar) */
+.audio-visual{position:relative;aspect-ratio:16/9;padding:0;overflow:hidden;border:0}
+.audio-visual>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.audio-bar{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.82));display:grid;gap:8px}
+.audio-bar b{color:#fff;font-size:.9rem}
+.audio-bar audio{width:100%}
 .badge-20{background:#fff;color:var(--brand-dark);border-radius:12px;padding:10px 14px;display:inline-block;text-align:center;font-weight:900;box-shadow:var(--shadow)}
 .badge-20 small{display:block;font-size:.7rem;letter-spacing:.1em;color:var(--muted)}
 /* Stats */
@@ -242,6 +247,7 @@ th{background:var(--bg-soft);color:var(--text)}
   #toTop{bottom:120px}
   body{padding-bottom:96px}
   .top-marquee{flex:1 1 100%;order:3;font-size:.78rem}
+  .video-row{grid-template-columns:1fr}
   .hero-grid{padding:26px 0 22px}
 }
 /* Netlify footer badge: never overlap site buttons on mobile — extra bottom space */
