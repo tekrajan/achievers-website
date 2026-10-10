@@ -86,7 +86,7 @@ p{margin:0 0 1rem}
 .hero-media{display:grid;gap:16px;align-content:start;min-width:0}
 .media-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);min-width:0}
 .video-wrap{background:#000;border-radius:12px;overflow:hidden}
-.video-wrap video{display:block;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px}
+.video-wrap video{display:block;width:100%;aspect-ratio:9/16;background:#000;border-radius:12px}
 .media-cap{margin:10px 2px 0;font-size:.88rem;font-weight:700;color:var(--brand-dark)}
 /* Twin promo videos in one row (original 16:9, undistorted) */
 .video-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
