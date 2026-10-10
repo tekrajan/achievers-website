@@ -173,10 +173,10 @@ footer a{color:#d1fae5}
 footer h4{color:#fff;margin:0 0 10px;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
 .foot-grid ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:.9rem}
 /* Get-in-touch rows: icon + text always on one line */
-.foot-contact li{display:flex;align-items:center;gap:7px;min-width:0}
-.foot-contact .ico{flex:0 0 auto}
-.foot-contact a{white-space:nowrap}
-.foot-contact .mail-link{font-size:.8rem;letter-spacing:-.01em}
+.foot-contact li{display:flex;align-items:flex-start;gap:7px;min-width:0}
+.foot-contact .ico{flex:0 0 auto;margin-top:3px}
+.foot-contact .phones{font-size:.85rem;white-space:nowrap}
+.foot-contact .mail-link{font-size:.8rem;letter-spacing:-.01em;white-space:nowrap}
 .socials{display:flex;gap:10px;margin-top:14px}
 .socials a{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.1);color:#fff}
 .socials a svg{width:22px;height:22px}
