@@ -26,6 +26,10 @@ p{margin:0 0 1rem}
 .topbar{background:var(--text);color:#cbd5e1;font-size:.82rem}
 .topbar .container{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:6px;padding-bottom:6px;flex-wrap:wrap}
 .topbar a{color:#e2e8f0}
+/* Skyblue oval contact buttons in topbar */
+.top-pill{display:inline-flex;align-items:center;gap:6px;background:#87CEEB;color:#06344d;border-radius:999px;padding:5px 14px;font-size:.8rem;font-weight:700;white-space:nowrap}
+.top-pill a{color:#06344d}
+.top-pill .ico{margin-right:0}
 /* Marquee embedded in topbar (between phone + mail) — deep metallic gold, no shadow */
 .top-marquee{flex:1 1 220px;min-width:0;overflow:hidden;white-space:nowrap;font-weight:800;font-size:.82rem;letter-spacing:.02em;text-align:center;text-shadow:none;box-shadow:none}
 .top-marquee:hover{text-decoration:none}
@@ -97,7 +101,8 @@ p{margin:0 0 1rem}
 .audio-visual>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .audio-bar{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.82));display:grid;gap:8px}
 .audio-bar b{color:#fff;font-size:.9rem}
-.audio-bar audio{width:100%}
+.audio-bar audio{width:100%;border-radius:999px}
+.audio-bar audio::-webkit-media-controls-panel{background:#87CEEB;border-radius:999px}
 .badge-20{background:#fff;color:var(--brand-dark);border-radius:12px;padding:10px 14px;display:inline-block;text-align:center;font-weight:900;box-shadow:var(--shadow)}
 .badge-20 small{display:block;font-size:.7rem;letter-spacing:.1em;color:var(--muted)}
 /* Stats */
@@ -215,8 +220,6 @@ footer h4{color:#fff;margin:0 0 10px;font-size:.8rem;letter-spacing:.14em;text-t
 .mobile-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px 12px;gap:10px}
 .mobile-cta a{flex:1;text-align:center}
 /* Netlify banner safety: no overlap with site buttons */
-footer{padding-bottom:34px}
-body{padding-bottom:70px}
 .nl-safe{min-height:8px}
 #toTop{position:fixed;right:16px;bottom:150px;border:0;background:var(--brand);color:#fff;width:42px;height:42px;border-radius:50%;cursor:pointer;display:none;box-shadow:var(--shadow)}
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
@@ -247,15 +250,13 @@ th{background:var(--bg-soft);color:var(--text)}
   .mobile-cta{display:flex}
   .foot-grid{grid-template-columns:1fr}
   #toTop{bottom:120px}
-  body{padding-bottom:96px}
+  body{padding-bottom:84px}
   .top-marquee{flex:1 1 100%;order:3;font-size:.78rem}
   .video-row{grid-template-columns:1fr}
   .hero-grid{padding:26px 0 22px}
 }
 /* Netlify footer badge: never overlap site buttons on mobile — extra bottom space */
 @media(max-width:640px){
-  body{padding-bottom:120px}
-  footer{padding-bottom:60px}
   .mobile-cta{box-shadow:0 -2px 10px rgba(15,23,42,.08)}
 }
 /* Sticky WhatsApp pill (bottom-right, clears mobile CTA + back-to-top) */
