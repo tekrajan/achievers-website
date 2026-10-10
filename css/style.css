@@ -26,6 +26,15 @@ p{margin:0 0 1rem}
 .topbar{background:var(--text);color:#cbd5e1;font-size:.82rem}
 .topbar .container{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:6px;padding-bottom:6px;flex-wrap:wrap}
 .topbar a{color:#e2e8f0}
+/* Golden promo ticker (home top) */
+.promo-ticker{background:#052e16;overflow:hidden;white-space:nowrap}
+.ticker-track{display:block;color:#FFD700;font-weight:800;font-size:.85rem;letter-spacing:.02em;padding:7px 0}
+.ticker-track:hover{text-decoration:none}
+.tick-inner{display:inline-flex;min-width:100%;justify-content:flex-start;animation:tick 16s linear infinite}
+.ticker-track:hover .tick-inner{animation-play-state:paused}
+.tick-inner span{white-space:nowrap}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none;transform:none}}
 /* Icons before text */
 .ico{display:inline-block;width:1em;height:1em;vertical-align:-.15em;margin-right:6px}
 .ico-lg{width:1.2em;height:1.2em}
@@ -74,6 +83,17 @@ p{margin:0 0 1rem}
 .hero-card::after{content:"";position:absolute;inset:auto -60px -60px auto;width:220px;height:220px;background:radial-gradient(circle,rgba(255,255,255,.25),transparent 70%)}
 .hero-list{display:grid;gap:10px;margin:16px 0;padding:0;list-style:none}
 .hero-list li{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:10px 12px;font-size:.93rem}
+/* Hero media column (promo video + audio) */
+.hero-media{display:grid;gap:16px;align-content:start;min-width:0}
+.media-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);min-width:0}
+.video-wrap{background:#000;border-radius:12px;overflow:hidden}
+.video-wrap video{display:block;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px}
+.media-cap{margin:10px 2px 0;font-size:.88rem;font-weight:700;color:var(--brand-dark)}
+.audio-card{display:flex;gap:12px;align-items:center}
+.audio-card img{width:72px;height:72px;border-radius:12px;object-fit:cover;flex:0 0 auto}
+.audio-body{min-width:0;flex:1;display:grid;gap:8px}
+.audio-body b{font-size:.9rem}
+.audio-body audio{width:100%;max-width:100%}
 .badge-20{background:#fff;color:var(--brand-dark);border-radius:12px;padding:10px 14px;display:inline-block;text-align:center;font-weight:900;box-shadow:var(--shadow)}
 .badge-20 small{display:block;font-size:.7rem;letter-spacing:.1em;color:var(--muted)}
 /* Stats */
@@ -222,6 +242,8 @@ th{background:var(--bg-soft);color:var(--text)}
   .foot-grid{grid-template-columns:1fr}
   #toTop{bottom:120px}
   body{padding-bottom:96px}
+  .ticker-track{font-size:.78rem}
+  .hero-grid{padding:26px 0 22px}
 }
 /* Netlify footer badge: never overlap site buttons on mobile — extra bottom space */
 @media(max-width:640px){
