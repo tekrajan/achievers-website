@@ -23,7 +23,7 @@ p{margin:0 0 1rem}
 .container{max-width:var(--max);margin:0 auto;padding:0 20px}
 .skip{position:absolute;left:-999px;top:0;background:var(--brand);color:#fff;padding:8px 14px;z-index:99;border-radius:0 0 8px 0}
 .skip:focus{left:0}
-.topbar{background:var(--text);color:#cbd5e1;font-size:.82rem}
+.topbar{background:#fff;color:#334155;border-bottom:1px solid #C9A227;font-size:.82rem}
 .topbar .container{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:6px;padding-bottom:6px;flex-wrap:wrap}
 .topbar a{color:#e2e8f0}
 /* Skyblue oval contact buttons in topbar */
@@ -35,7 +35,7 @@ p{margin:0 0 1rem}
 .top-marquee:hover{text-decoration:none}
 .tick-inner{display:inline-flex;animation:tick 28s linear infinite}
 .top-marquee:hover .tick-inner{animation-play-state:paused}
-.tick-inner>span{white-space:nowrap;color:transparent;background:linear-gradient(180deg,#7c5e10 0%,#b8860b 28%,#f7e08b 50%,#d4af37 62%,#7c5e10 100%);-webkit-background-clip:text;background-clip:text;text-shadow:none}
+.tick-inner>span{white-space:nowrap;color:transparent;background:linear-gradient(180deg,#7c5e10 0%,#a87e0c 30%,#d9a91f 50%,#a87e0c 70%,#7c5e10 100%);-webkit-background-clip:text;background-clip:text;text-shadow:none}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.tick-inner{animation:none}}
 /* Icons before text */
