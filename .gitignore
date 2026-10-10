@@ -1,8 +1,0 @@
-# Local submission artifacts (kept on disk, not in repo)
-screenshots/
-Achievers-Website-Submission.pdf
-
-# OS / editor
-.DS_Store
-Thumbs.db
-*.log
