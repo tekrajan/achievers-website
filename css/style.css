@@ -26,15 +26,14 @@ p{margin:0 0 1rem}
 .topbar{background:var(--text);color:#cbd5e1;font-size:.82rem}
 .topbar .container{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:6px;padding-bottom:6px;flex-wrap:wrap}
 .topbar a{color:#e2e8f0}
-/* Golden promo ticker (home top) */
-.promo-ticker{background:#052e16;overflow:hidden;white-space:nowrap}
-.ticker-track{display:block;color:#FFD700;font-weight:800;font-size:.85rem;letter-spacing:.02em;padding:7px 0}
-.ticker-track:hover{text-decoration:none}
-.tick-inner{display:inline-flex;min-width:100%;justify-content:flex-start;animation:tick 16s linear infinite}
-.ticker-track:hover .tick-inner{animation-play-state:paused}
+/* Marquee embedded in topbar (between phone + mail) */
+.top-marquee{flex:1 1 220px;min-width:0;overflow:hidden;white-space:nowrap;color:#DAA520;font-weight:800;font-size:.82rem;letter-spacing:.02em;text-align:center;text-shadow:none;box-shadow:none}
+.top-marquee:hover{color:#DAA520;text-decoration:none}
+.tick-inner{display:inline-flex;will-change:transform;animation:tick 16s linear infinite}
+.top-marquee:hover .tick-inner{animation-play-state:paused}
 .tick-inner span{white-space:nowrap}
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.ticker-track{animation:none;transform:none}}
+@media(prefers-reduced-motion:reduce){.tick-inner{animation:none}}
 /* Icons before text */
 .ico{display:inline-block;width:1em;height:1em;vertical-align:-.15em;margin-right:6px}
 .ico-lg{width:1.2em;height:1.2em}
@@ -242,7 +241,7 @@ th{background:var(--bg-soft);color:var(--text)}
   .foot-grid{grid-template-columns:1fr}
   #toTop{bottom:120px}
   body{padding-bottom:96px}
-  .ticker-track{font-size:.78rem}
+  .top-marquee{flex:1 1 100%;order:3;font-size:.78rem}
   .hero-grid{padding:26px 0 22px}
 }
 /* Netlify footer badge: never overlap site buttons on mobile — extra bottom space */
