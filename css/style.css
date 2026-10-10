@@ -75,7 +75,8 @@ p{margin:0 0 1rem}
 /* Sections */
 .section{padding:56px 0}
 .section-soft{background:var(--bg-soft)}
-.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+.sec-head>div:first-child{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
 .sec-head p{color:var(--muted);margin:.3rem 0 0;max-width:62ch}
 .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
 .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -208,3 +209,105 @@ th{background:var(--bg-soft);color:var(--text)}
   .mobile-cta{box-shadow:0 -2px 10px rgba(15,23,42,.08)}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* ============================================================
+   POLISHED COMPONENT LAYER — student-friendly, purposeful
+   ============================================================ */
+
+/* --- Global interaction base --- */
+a,button,.btn,.card,.course-card,.teacher,.stat,.chip{transition:transform .18s cubic-bezier(.22,1,.36,1),box-shadow .18s ease,background .18s ease,color .18s ease,border-color .18s ease,opacity .18s ease}
+:focus-visible{outline:3px solid var(--brand);outline-offset:3px;border-radius:8px}
+.btn{position:relative;overflow:hidden;will-change:transform}
+.btn::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--x,50%) var(--y,50%),rgba(255,255,255,.35),transparent 60%);opacity:0;transition:opacity .4s}
+.btn:hover::after{opacity:1}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn-brand{box-shadow:0 6px 18px rgba(22,163,74,.28)}
+.btn-brand:hover{box-shadow:0 10px 26px rgba(22,163,74,.4)}
+
+/* --- Card lift + accent --- */
+.card,.course-card,.teacher{transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s ease,border-color .25s}
+.card:hover,.course-card:hover,.teacher:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(15,23,42,.14);border-color:#bbf7d0}
+.course-card .thumb img,.teacher .ph img{transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.course-card:hover .thumb img,.teacher:hover .ph img{transform:scale(1.07)}
+.course-card .body::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--brand),#0891b2);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.course-card{position:relative}
+.course-card:hover .body::before{transform:scaleX(1)}
+
+/* --- Hero polish --- */
+.hero-card{animation:floaty 7s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero h1{position:relative}
+.hero h1 span{background:linear-gradient(120deg,var(--brand),#0891b2);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% auto;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.avatars img{transition:transform .25s}
+.avatars:hover img{transform:translateY(-3px)}
+
+/* --- Stats --- */
+.stat{border-radius:14px}
+.stat:hover{background:rgba(255,255,255,.1)}
+.stat b span{background:linear-gradient(90deg,#fff,#dcfce7);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* --- Chips --- */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:9px 15px;font-weight:700;font-size:.88rem;color:var(--text);cursor:pointer}
+.chip:hover{border-color:var(--brand);color:var(--brand-dark);background:var(--brand-light);transform:translateY(-2px)}
+
+/* --- Section heading underline --- */
+.sec-head h2{position:relative;display:inline-block}
+.sec-head h2::after{content:"";position:absolute;left:0;bottom:-8px;height:4px;width:44px;border-radius:4px;background:linear-gradient(90deg,var(--brand),#0891b2);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.sec-head h2.in-underline::after,.reveal.in h2::after{transform:scaleX(1)}
+
+/* --- Stagger reveal --- */
+.reveal{transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
+.reveal:nth-child(2){transition-delay:.06s}.reveal:nth-child(3){transition-delay:.12s}.reveal:nth-child(4){transition-delay:.18s}.reveal:nth-child(5){transition-delay:.24s}
+
+/* --- Steps connector --- */
+.step{position:relative;transition:transform .25s,box-shadow .25s}
+.step:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(15,23,42,.12);border-color:#bbf7d0}
+.step b.num{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--brand-light);color:var(--brand-dark);font-size:.8rem;margin-bottom:8px}
+
+/* --- FAQ smooth --- */
+.faq details{transition:background .2s}
+.faq details:hover{background:#f8fafc}
+.faq summary{transition:color .2s,padding-left .2s}
+.faq summary:hover{color:var(--brand-dark);padding-left:22px}
+.faq summary::after{transition:transform .3s ease}
+.faq details[open] summary::after{transform:rotate(180deg)}
+
+/* --- Slider dots + autoplay --- */
+.slider-nav .dots{display:flex;gap:6px;align-items:center}
+.slider-nav .dot{width:9px;height:9px;border-radius:50%;background:#cbd5e1;border:0;cursor:pointer;padding:0}
+.slider-nav .dot.on{background:var(--brand);width:26px;border-radius:6px;transition:width .3s,background .3s}
+
+/* --- Marquee strip (subjects) --- */
+.marquee{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-track{display:flex;gap:14px;width:max-content;animation:scrollx 32s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+.marquee .chip{cursor:default}
+
+/* --- Teacher badge pulse --- */
+.feat{animation:pulseGlow 2.6s ease-in-out infinite}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(245,158,11,.4)}50%{box-shadow:0 0 0 5px rgba(245,158,11,0)}}
+
+/* --- Mobile nav slide --- */
+@media(max-width:640px){
+  .nav-links{transform:translateY(-12px);opacity:0;pointer-events:none;transition:transform .28s ease,opacity .28s ease;box-shadow:0 20px 40px rgba(15,23,42,.14)}
+  .nav-links.open{transform:translateY(0);opacity:1;pointer-events:auto}
+}
+
+/* --- Back to top reveal --- */
+#toTop{transition:opacity .3s,transform .3s}
+#toTop.show{display:block}
+#toTop:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(22,163,74,.4)}
+
+/* --- Scroll progress bar --- */
+#scrollBar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--brand),#0891b2);z-index:200;transition:width .1s linear}
+
+/* --- CTA banner shimmer --- */
+.cta-banner{position:relative;overflow:hidden}
+.cta-banner::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.22),transparent);transform:skewX(-18deg);animation:sweep 5s ease-in-out infinite}
+@keyframes sweep{0%{left:-60%}55%,100%{left:130%}}
+
+@media(prefers-reduced-motion:reduce){.hero-card,.hero h1 span,.marquee-track,.feat,.cta-banner::before{animation:none!important}}
