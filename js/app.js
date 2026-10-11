@@ -17,6 +17,7 @@
 
   // Counters (skip animation for screenshots/PDF: add ?shot=1 to URL)
   var staticMode=/[?&](shot|static|print)=1/.test(location.search);
+  if(staticMode)document.documentElement.classList.add('static');
   var counters=$$('[data-count]');
   if(staticMode){counters.forEach(function(el){el.textContent=el.getAttribute('data-count')+(el.getAttribute('data-suffix')||'')});}
   else if('IntersectionObserver' in window && counters.length){

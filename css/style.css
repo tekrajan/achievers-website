@@ -270,4 +270,52 @@ th{background:var(--bg-soft);color:var(--text)}
 .wa-float svg{width:20px;height:20px}
 .wa-float:hover{background:#0e6b3f;color:#fff;text-decoration:none;transform:translateY(-2px)}
 @media(max-width:640px){.wa-float{bottom:188px;padding:11px 16px;font-size:.85rem}}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+/* ---------- Motion layer (transform/opacity/background only) ---------- */
+.btn{transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,color .18s ease,border-color .18s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-brand:hover{box-shadow:0 10px 22px rgba(22,163,74,.35)}
+.btn-outline:hover{box-shadow:0 10px 22px rgba(22,163,74,.25)}
+.btn-white:hover{box-shadow:0 10px 22px rgba(0,0,0,.28)}
+/* Header Demo CTA: permanent green pill (same size as nav hover pill), inverts on hover */
+.nav-links a.nav-demo{background:var(--brand);color:#fff;border:1.5px solid var(--brand);border-radius:9px;padding:8px 14px;font-weight:800}
+.nav-links a.nav-demo:hover{background:#fff;color:var(--brand);box-shadow:0 8px 18px rgba(22,163,74,.32);transform:translateY(-1px)}
+/* Hero load-in cascade */
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero-load>*{opacity:0;animation:rise .6s ease forwards}
+.hero-load>*:nth-child(1){animation-delay:.05s}
+.hero-load>*:nth-child(2){animation-delay:.12s}
+.hero-load>*:nth-child(3){animation-delay:.19s}
+.hero-load>*:nth-child(4){animation-delay:.26s}
+.hero-load>*:nth-child(5){animation-delay:.33s}
+.hero-load>*:nth-child(6){animation-delay:.4s}
+html.static .hero-load>*{animation:none;opacity:1}
+/* Hero feature bars: slide + brighten */
+.hero-list li{transition:transform .2s ease,background-color .2s ease}
+.hero-list li:hover{transform:translateX(6px);background:rgba(255,255,255,.22)}
+/* Cards: lift + thumb zoom */
+.course-card,.teacher{transition:transform .22s ease,box-shadow .22s ease}
+.course-card:hover,.teacher:hover{transform:translateY(-5px);box-shadow:0 16px 30px rgba(15,23,42,.14)}
+.course-card .thumb img,.teacher .ph img{transition:transform .35s ease}
+.course-card:hover .thumb img,.teacher:hover .ph img{transform:scale(1.05)}
+.teacher .ph{overflow:hidden}
+/* Subject index rows: nudge */
+.subj-index a{transition:transform .2s ease,background-color .2s ease}
+.subj-index a:hover{transform:translateX(4px)}
+/* Stats band: gentle lift */
+.stat{transition:transform .2s ease}
+.stat:hover{transform:translateY(-3px)}
+/* Slider arrows: invert */
+.slider-nav button{transition:background-color .2s ease,color .2s ease,transform .2s ease}
+.slider-nav button:hover{background:var(--brand);color:#fff;border-color:var(--brand);transform:translateY(-2px)}
+/* CTA banner: slow sheen sweep */
+.cta-banner{position:relative;overflow:hidden}
+.cta-banner::before{content:"";position:absolute;top:0;bottom:0;left:-40%;width:36%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);transform:skewX(-18deg);animation:sheen 5.5s ease-in-out infinite;pointer-events:none}
+@keyframes sheen{0%{left:-40%}55%,100%{left:130%}}
+/* Footer text links: underline grows */
+.foot-grid ul a{background:linear-gradient(currentColor,currentColor) left bottom no-repeat;background-size:0% 1px;transition:background-size .25s ease}
+.foot-grid ul a:hover{background-size:100% 1px;text-decoration:none}
+/* Floating + utility controls */
+.wa-float,.map-link,.top-pill{transition:transform .2s ease,box-shadow .2s ease}
+.wa-float:hover{transform:translateY(-2px)}
+.map-link:hover,.top-pill:hover{transform:translateY(-2px);text-decoration:none}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
