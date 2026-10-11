@@ -82,6 +82,29 @@
     v.addEventListener('ended',function(){try{v.load()}catch(e){try{v.currentTime=0}catch(_){}v.pause()}});
   });
 
+  // Testimonial marquee: duplicate once for a seamless -50% loop (vanilla InfiniteMovingCards)
+  var tt=$('#tTrack');
+  if(tt){Array.prototype.slice.call(tt.children).forEach(function(item){var c=item.cloneNode(true);c.setAttribute('aria-hidden','true');tt.appendChild(c)})}
+
+  // Audio-as-video panel: cover backdrop, center play, live EQ, seek line
+  var panel=$('#avPanel');
+  if(panel){
+    var au=$('#avAudio'),btn=$('#avPlay'),eq=$('#avEq'),prog=$('#avProg'),fill=$('#avFill');
+    var PLAY='M8 5v14l11-7z',PAUSE='M6 5h4v14H6zM14 5h4v14h-4z';
+    function setIcon(p){var ph=btn.querySelector('svg path');if(ph)ph.setAttribute('d',p);
+      btn.setAttribute('aria-label',p===PLAY?'Play mentor message':'Pause mentor message');
+      btn.setAttribute('aria-pressed',p===PLAY?'false':'true')}
+    if(eq){for(var i=0;i<32;i++){var s=document.createElement('span');
+      s.style.animationDuration=(0.5+Math.random()*0.7).toFixed(2)+'s';
+      s.style.animationDelay=(-Math.random()).toFixed(2)+'s';eq.appendChild(s)}}
+    function sync(){panel.classList.toggle('playing',!au.paused);setIcon(au.paused?PLAY:PAUSE)}
+    btn.addEventListener('click',function(){if(au.paused)au.play();else au.pause()});
+    au.addEventListener('play',sync);au.addEventListener('pause',sync);au.addEventListener('ended',sync);
+    au.addEventListener('timeupdate',function(){if(au.duration)fill.style.width=(au.currentTime/au.duration*100)+'%'});
+    if(prog)prog.addEventListener('click',function(e){var r=prog.getBoundingClientRect();
+      if(au.duration)au.currentTime=((e.clientX-r.left)/r.width)*au.duration});
+  }
+
   // Sliding nav cursor (vanilla NavHeader port; hover-capable pointers only)
   if(window.matchMedia&&matchMedia('(hover:hover)').matches){
     var nav=$('#navLinks');
