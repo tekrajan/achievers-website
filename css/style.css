@@ -122,6 +122,9 @@ p{margin:0 0 1rem}
 .t-track{display:flex;gap:16px;width:max-content;padding:6px 2px;animation:tscroll 70s linear infinite}
 .t-marquee:hover .t-track{animation-play-state:paused}
 @keyframes tscroll{to{transform:translateX(calc(-50% - 8px))}}
+/* Faculty uses the same marquee; teacher cards keep their look + hover pop */
+#fTrack{animation-duration:60s}
+.t-track .teacher{flex:0 0 auto;width:260px;max-width:78vw}
 .t-card{width:340px;max-width:82vw;flex:0 0 auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
 .t-card .stars{color:#f59e0b;letter-spacing:.12em;margin-bottom:6px}
 .t-card blockquote{margin:0 0 10px;font-size:.93rem}
