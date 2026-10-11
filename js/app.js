@@ -81,6 +81,26 @@
     v.addEventListener('ended',function(){try{v.load()}catch(e){try{v.currentTime=0}catch(_){}v.pause()}});
   });
 
+  // Sliding nav cursor (vanilla NavHeader port; hover-capable pointers only)
+  if(window.matchMedia&&matchMedia('(hover:hover)').matches){
+    var nav=$('#navLinks');
+    var cur=nav?$('.nav-cursor',nav):null;
+    if(nav&&cur){
+      var links=$$('#navLinks a').filter(function(a){return !a.classList.contains('btn')});
+      var cta=$('#navLinks a.btn');
+      function move(a){cur.style.left=a.offsetLeft+'px';cur.style.top=a.offsetTop+'px';cur.style.width=a.offsetWidth+'px';cur.style.height=a.offsetHeight+'px';cur.style.opacity='1';
+        links.forEach(function(x){x.classList.toggle('on-pill',x===a)})}
+      function hide(){cur.style.opacity='0';links.forEach(function(x){x.classList.remove('on-pill')})}
+      links.forEach(function(a){
+        a.addEventListener('mouseenter',function(){move(a)});
+        a.addEventListener('focus',function(){move(a)});
+      });
+      if(cta)cta.addEventListener('mouseenter',hide);
+      nav.addEventListener('mouseleave',hide);
+      window.addEventListener('resize',hide);
+    }
+  }
+
   // To top
   var top=$('#toTop');
   if(top){window.addEventListener('scroll',function(){top.style.display=window.scrollY>600?'block':'none'},{passive:true});
