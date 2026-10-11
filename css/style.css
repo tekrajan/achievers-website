@@ -278,6 +278,7 @@ th{background:var(--bg-soft);color:var(--text)}
   #toTop{bottom:120px}
   body{padding-bottom:84px}
   .top-marquee{flex:1 1 100%;order:3;font-size:.78rem}
+  .topbar .top-pill{display:none}
   .video-row{grid-template-columns:1fr}
   .hero-grid{padding:26px 0 22px}
 }
