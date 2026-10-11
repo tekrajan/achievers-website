@@ -32,7 +32,7 @@
   function fillTrack(id,sets){var el=$(id);if(!el)return;var kids=Array.prototype.slice.call(el.children);
     for(var r=1;r<sets;r++){kids.forEach(function(item){var c=item.cloneNode(true);c.setAttribute('aria-hidden','true');el.appendChild(c)})}}
   fillTrack('#tTrack',2);
-  fillTrack('#fTrack',4);
+  fillTrack('#fTrack',2);
 
   // Reveal
   var rev=$$('.reveal');
